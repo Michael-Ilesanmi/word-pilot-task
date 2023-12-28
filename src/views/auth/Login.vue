@@ -10,12 +10,12 @@
         <form @submit.prevent="login()" class="mt-8">
             <fieldset>
                 <label for="email">Email*</label><br>
-                <input type="email" v-model="loginDetails.email" name="email" id="email" placeholder="mail@simmmple.com" />
+                <input type="email" v-model="loginDetails.email" name="email" id="email" placeholder="mail@simmmple.com" :class="{ '!border-red-400' : v$.email?.$invalid}" />
                 <span v-if="v$.email?.$invalid" class="text-xs text-red-600">Enter a valid email address</span>
             </fieldset>
             <fieldset>
                 <label for="password">Password*</label><br>
-                <input type="password" v-model="loginDetails.password" name="password" id="password" placeholder="Min. 8 characters" />
+                <input type="password" v-model="loginDetails.password" name="password" id="password" placeholder="Min. 8 characters" :class="{ '!border-red-400' : v$.password?.$invalid}" />
                 <span v-if="v$.password?.$invalid" class="text-xs text-red-600">Password must be at least 8 characters</span>
             </fieldset>
             <div class="text-sm font-primary w-full flex justify-between items-center">
@@ -25,7 +25,7 @@
                 </div>
                 <a href="#" class="text-primary-blue">Forget password?</a>
             </div>
-            <button>
+            <button :disabled="v$.$invalid" class="disabled:cursor-not-allowed">
                 Sign In
             </button>
         </form>
@@ -50,7 +50,9 @@
 import { reactive, ref } from "vue";
 import { useVuelidate } from '@vuelidate/core'
 import { required, email, minLength } from '@vuelidate/validators'
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 
 const loginDetails = reactive({
     email: "",
@@ -69,6 +71,8 @@ const login = async () => {
         return;
     }
     alert('Login Successful')
+    return  router.push({ name: "DashboardIndex"});
+
 }
 </script>
 
@@ -88,7 +92,7 @@ button {
                 @apply font-medium font-primary;
             }
             input {
-                @apply border border-[#E0E5F2] ring-0 focus-visible:ring-0 focus-visible:border-[#E0E5F2] focus:border-[#E0E5F2] rounded p-3 w-full text-text-secondary;
+                @apply border border-[#E0E5F2] focus:border-[#77AEF4] rounded p-3 w-full text-text-secondary;
             }
         }
         button {
