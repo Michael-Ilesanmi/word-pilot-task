@@ -1,9 +1,9 @@
 <template>
-  <main class="grid-cols-[290px_1fr]">
+  <main class="grid-cols-[290px_1fr] h-screen min-h-screen overflow-hidden">
     <SideNav />
-    <div class="p-4 w-full min-h-full">
+    <div class="p-4 w-full max-h-full grid grid-rows-[80px_calc(100vh-110px)] overflow-y-clip">
       <TopNav />
-      <RouterView />
+      <RouterView class="mt-4 max-h-full overflow-y-clip" />
     </div>
   </main>
 </template>

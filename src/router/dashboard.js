@@ -1,9 +1,10 @@
 import DashboardContainer from '@/layouts/dashboard/DashboardContainer.vue';
 import DashboardIndex from '@/views/dashboard/DashboardIndex.vue';
+import ProjectsPage from '@/views/dashboard/projects/ProjectsPage.vue';
 
 const dashboardRoutes = [
     {
-        path: '/dashboard',
+        path: '/',
         name: 'DashboardContainer',
         component: DashboardContainer,
         children: [
@@ -11,6 +12,11 @@ const dashboardRoutes = [
             path: '',
             name: 'DashboardIndex',
             component: DashboardIndex
+            },
+            {
+            path: 'projects',
+            name: 'ProjectsPage',
+            component: ProjectsPage
             },
         ]
     },

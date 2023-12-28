@@ -3,11 +3,11 @@
     <img src="@/assets/img/logo/logo-light.svg" alt="Word Pilot Logo">
     <nav class="border-t border-[#FFFFFF0F] pt-8 mt-8">
       <ul class="text-white space-y-2">
-        <li v-for="(item, index) in navItems" :key="index" :class="$route.name == item.routeName ? 'bg-primary-blue hover:bg-secondary-blue text-white rounded font-bold' : 'font-medium text-text-secondary'">
-          <span class="iconify" :data-icon="item.icon"></span>
-          {{
-            item.title
-          }}
+        <li @click="$router.push(item.route)" v-for="(item, index) in navItems" :key="index" :class="$route.path == item.route ? 'bg-primary-blue hover:bg-secondary-blue text-white rounded font-bold' : 'font-medium text-text-secondary'">
+            <span class="iconify" :data-icon="item.icon"></span>
+            {{
+              item.title
+            }}
         </li>
       </ul>
     </nav>
@@ -19,32 +19,32 @@ const navItems = [
   {
     title: 'Dashboard',
     icon: 'ri:dashboard-fill',
-    routeName: 'DashboardIndex',
+    route: '/',
   },
   {
     title: 'Projects',
     icon: 'tdesign:folder-setting',
-    routeName: 'ProjectsPage',
+    route: '/projects',
   },
   {
     title: 'Scheduler',
     icon: 'ri:calendar-schedule-fill',
-    routeName: 'SchedulerPage',
+    route: '/',
   },
   {
     title: 'Content Wizard',
     icon: 'ri:magic-fill',
-    routeName: 'ContentWizard',
+    route: '/',
   },
   {
     title: 'Documents',
     icon: 'jam:document-f',
-    routeName: 'DocumentsPage',
+    route: '/',
   },
   {
     title: 'Logout',
     icon: 'ri:logout-circle-fill',
-    routeName: 'Logout',
+    route: '/',
   },
 ];
 </script>

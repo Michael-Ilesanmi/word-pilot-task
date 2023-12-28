@@ -11,10 +11,21 @@ html, body {
     width: 100%;
 }
 
-input, select {
-    @apply focus-visible:ring-0 focus:ring-0 focus:border focus:outline-none outline-offset-0 border-[#77AEF4];
+input, select, textarea{
+    @apply focus-visible:ring-0 focus:ring-0 focus:border focus:outline-none outline-offset-0 focus:border-[#77AEF4];
 }
 
 .iconify {
-    @apply inline;
+    @apply inline cursor-pointer;
+}
+
+.customized-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    padding-right: 12px;
+    background-color: #ffffff99; 
+}
+  
+.customized-scrollbar::-webkit-scrollbar-thumb {
+    background: #CFE4FF;
 }

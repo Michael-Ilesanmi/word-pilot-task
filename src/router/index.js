@@ -6,11 +6,6 @@ import dashboardRoutes from './dashboard'
 import HomeView from '@/views/HomeView.vue'
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
   ...authRoutes,
   ...dashboardRoutes,
 ];

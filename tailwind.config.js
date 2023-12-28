@@ -6,7 +6,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      primary: ['Red Hat Display', 'sans-serif'],
+      primary: ["Red Hat Display", 'sans-serif'],
       secondary: ['DM Sans', 'serif'],
     },
     extend: {
